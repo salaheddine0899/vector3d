@@ -6,13 +6,16 @@ namespace Algebra {
 		double vect[3];
 	public:
 		Vector3D(double x = 0, double y = 0, double z = 0);
-		Vector3D(const Vector3D&) = delete;
+		//Vector3D(const Vector3D&) = delete;
 		void print() const;
 		double at(int);
 		double& operator[](int i);
-		Vector3D operator=(const Vector3D&) = delete;
+		//Vector3D operator=(const Vector3D&);
 		bool operator==(const Vector3D&)const;
 		bool operator!=(const Vector3D&) const;
+		double operator*(const Vector3D&) const;
+		Vector3D& operator^(const Vector3D&);
+		double norme();
 
 	};
 }

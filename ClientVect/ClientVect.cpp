@@ -11,8 +11,9 @@ int main()
 {
     Vector3D v(1, 2, 3);
     v.print();
-    v[0] = 5;
-    v.print();
+    Vector3D v2(1, 4, 1);
+    v2 = v ^ v2;
+    v2.print();
     //cout << v.at(0);
 }
 

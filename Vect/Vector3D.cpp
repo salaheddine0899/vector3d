@@ -3,6 +3,7 @@
 #include <iostream>
 #include<assert.h>
 #include<string>
+#include<cmath>
 using namespace std;
 
 namespace Algebra {
@@ -53,5 +54,27 @@ namespace Algebra {
     bool Vector3D::operator!=(const Vector3D& v)const
     {
         return !(*this == v);
+    }
+    double Vector3D::operator*(const Vector3D& v) const
+    {
+        double res=0;
+        for (int i = 0; i < 3; i++)
+            res += this->vect[i] * v.vect[i];
+        return res;
+    }
+    Vector3D& Vector3D::operator^(const Vector3D&v)
+    {
+        // TODO: insert return statement here.
+        Vector3D *res = new Vector3D();
+        res->vect[0] = this->vect[1] * v.vect[2] - this->vect[2] * v.vect[1];
+        res->vect[1] = this->vect[2] * v.vect[0] - this->vect[0] * v.vect[2];
+        res->vect[2] = this->vect[0] * v.vect[1] - this->vect[1] * v.vect[0];
+
+        return *res;
+    }
+    double Vector3D::norme()
+    {
+
+        return sqrt(pow(this->vect[0], 2) + pow(this->vect[1], 2) + pow(this->vect[2], 2));
     }
 }
